@@ -1,0 +1,74 @@
+%!TEX root = ../fieldguide.tex
+
+\section{Cryptography Challenges}
+
+\subsection{XOR / Exclusive or} In these challenges you are usually given some hex values. Xoring is implemented in the most programming languages. To xor in python you can follow this example:
+
+\begin{lstlisting}
+	a = 0xc4115 # first value
+	b = 0x4cf8 # second value
+	print(hex(a ^ b))
+\end{lstlisting}
+
+The output will be \texttt{0xc0ded}. The logic behind XOR is the same like in addition of binary integers. For further information look at: \url{https://en.wikipedia.org/wiki/Exclusive_or}
+
+\subsection{Rare Ciphers}
+
+
+\begin{table}[htb]
+	\centering
+	%\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[\textwidth]{C{3cm}|C{4cm}|C{3cm}}
+		\toprule
+		%\cmidrule{2-3}
+		%\midrule
+		\textbf{Cipher} & \textbf{Encoded} & \textbf{Decoded} \\
+		\midrule[1.25pt]
+		Bacon & BAABABAABBAABAAAABBAABBBA & stego \\
+		\bottomrule
+	\end{tabular} 
+\end{table}
+
+\subsection{Substitution Cipher}
+In substitution ciphers the characters of the alphabet get substituted to other characters. One of the easiest is the caesar cipher, where the characters get rotated. Those kind of ciphers can be easily bruteforced with a list of common english words (\url{https://www.dcode.fr/monoalphabetic-substitution})
+
+\begin{table}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+	\toprule
+	A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\
+	\midrule
+	Z & Y & X & W & V & U & T & S & R & Q & P & O & N & M & L & K & J & I & H & G & F & E & D & C & B & A \\
+	\bottomrule
+	\end{tabular}
+	\caption{Example of an substitution cipher}
+\end{table}
+
+\subsection{RSA}
+ \paragraph{Small public exponent} An often used RSA challenge is the small public exponent challenge. In this challenges e, n and c are given and you have to get m. 
+
+ The following equation shows how m can be calculated with small public exponents:
+\begin{align}
+c & = m^e \pmod{n} \\
+m & = \sqrt[e]{c} \pmod{n}
+\end{align}
+So our example will be:
+\begin{align*}
+e&=1 \\
+c&=9327565722767258308650643213344542404592011161659991421 \\
+n&=245841236512478852752909734912575581815967630033049838269083
+\end{align*}
+With these numbers the solution of the equation will be:
+\begin{align}
+9327565722767258308650643213344542404592011161659991421 = m^1 \pmod{n} \\
+m = \sqrt[1]{9327565722767258308650643213344542404592011161659991421} \pmod{n} \\
+m = 9327565722767258308650643213344542404592011161659991421 \pmod{n} \\
+m = 9327565722767258308650643213344542404592011161659991421
+\end{align}
+After you have solved this equation, you have a long number. This number has to be converted to readable ascii-text. This can be accomplished with the following code in wich the number gets converted to hex. After this it gets cut into pairs, these values converted to ascii values and the values to the ascii letters. The result of all this is the flag: \emph{abctf\{b3tter\_up\_y0ur\_e\}}.
+
+\begin{lstlisting}
+	m = 9327565722767258308650643213344542404592011161659991421 # this is the result of the equation
+	h = hex(m)
+	hex = 61626374667b6233747465725f75705f793075725f657d
+	print(''.join([chr(int(''.join(c), 16)) for c in zip(hex[0::2],hex[1::2])]))
+\end{lstlisting}

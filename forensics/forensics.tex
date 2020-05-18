@@ -1,0 +1,25 @@
+%!TEX root = ../fieldguide.tex
+
+\section{Forensics Challenges}
+
+\subsection{Wireshark .pcap files}
+In easy challenges it is enough to follow some streams and keep searching for the flag. Wireshark can find strings in the packet bytes or in its description. Further you can search for strings or hex values.
+
+In other challenges you have to filter for connected ports. For example SSH. An SSH connection starts with \texttt{begin} and ends with \texttt{end}.
+
+\subsection{File headers}
+If a file cannot be opened and some relevant errors are thrown, you can give wrong file headers a shot. To solve this kind of challenges you have to open the file in a hex editor (\texttt{bless}) and have a look at the first values and compare them with expected ones of this file type (you can find those on the internet).
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c}
+	\toprule
+	\textbf{Filetype} & \textbf{Fileheader} \\
+	\midrule
+	\href{http://www.libpng.org/pub/png/spec/1.2/PNG-Structure.html}{.png} & \texttt{137 80 78 71 13 10 26 10} \\
+	\midrule
+	\href{https://www.file-recovery.com/jpg-signature-format.htm}{.jpg} & \texttt{FF D8 FF} \\
+	\bottomrule
+	\end{tabular}
+	\caption{Examples of fileheaders}
+\end{table}

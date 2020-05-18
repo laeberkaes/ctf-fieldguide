@@ -1,0 +1,15 @@
+%!TEX root = ../fieldguide.tex
+
+\section{Binary Challenges}
+
+\subsection{Integer Overflow} For some kind of challenges it is enough to give it negative integers. To understand  this we need to know that there are two different types of integers (signed and unsigned).
+
+The only difference is that signed integers can be negative and unsigned not. For example \texttt{1101} represents an \texttt{13} unsigned integer and an \texttt{3} signed integer. So an program is vulnerable to such a integer overflow, if it passes an signed integer if only unsigned are allowed. This is often the case in some easy show challenges in CTF's. Even if the program only accepts a certain size of a integer it can get overflowed by this vulnerability.
+
+For further information look at: \url{https://d3vnull.com/integer-overflow/} and \url{https://www.swarthmore.edu/NatSci/echeeve1/Ref/BinaryMath/NumSys.html}.
+
+If the program checks for signed integers, there is another possibility to overflow integers. Most integers in C have the size of a 4 bytes. If you give the programa number that can't be saved in 4 bytes you get an overflow.
+
+\subsection{.bin files} For most binary files the first step is to look at them in a hex editor (like \emph{bless}) and to run the \texttt{file} command on them to determine what kind of file it is. Some other tools you can run in the recon phase are \texttt{ltrace}, \texttt{strace}, \texttt{objdump}, \texttt{radare2}.
+
+After this you should have a clou what you can do with this file. E. g. delete / change some bytes to turn them into an \texttt{.png} file.

@@ -1,0 +1,30 @@
+%!TEX root = ../fieldguide.tex
+
+\section{Web Challenges}
+
+\subsection{SQLi} SQL is a language which is used to get values out of a database. For example the two following lines can be used. In the first line the two rows \textbf{username} and \textbf{email} in a table called \textbf{users} will be returned.
+
+\begin{lstlisting}[language=sql]
+	SELECT username, email from users;
+	INSERT into users (username, email) values ("team@ctflearn.com", "intelagent");
+\end{lstlisting}
+
+The following code will filter the table called \textbf{users} for all entries in the row \textbf{username} where the value is \textbf{word-of-search}.
+\begin{lstlisting}
+	SELECT * from users where username = "word-for-search";
+\end{lstlisting}
+
+Now we will start to try exploiting SQL. The following code selects all rows of a table called \textbf{users} (\lstinline[language=sql]|SELECT * from users| $\leftarrow$ would return all rows from all columns) and filters all results for usernames. But as condition it has \lstinline[language=sql]|" or true| which will return all rows of the table.
+
+\begin{lstlisting}
+	SELECT * from users WHERE username = "" or true -- ";
+\end{lstlisting}
+
+\subsection{POST authentication}
+POST form is always used if it contains personal or sensitive data. This date will not be displayed in the url. POST forms don't have a size limitation.
+
+Easy POST authentications can be accomplished with the Linux command \texttt{curl}. The parameter \texttt{-d} will define the data wich will be sent in the POST form. The following example will send the username \texttt{admin} and the password \texttt{71urlkufpsdnlkadsf} to the webpage \texttt{http://165.227.106.113/post.php}. In further attacks this can be used for bruteforcing login screens with hydra for example.
+
+\begin{lstlisting}[language=bash]
+	curl -d username=admin -d password=71urlkufpsdnlkadsf http://165.227.106.113/post.php
+\end{lstlisting}

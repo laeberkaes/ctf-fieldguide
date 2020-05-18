@@ -1,0 +1,25 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Binary Challenges}{2}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Integer Overflow}{2}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}.bin files}{2}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}Cryptography Challenges}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}XOR / Exclusive or}{2}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Rare Ciphers}{2}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Substitution Cipher}{2}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}RSA}{3}{subsection.2.4}% 
+\contentsline {paragraph}{\nonumberline Small public exponent}{3}{section*.2}% 
+\contentsline {section}{\numberline {3}Forensics Challenges}{4}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Wireshark .pcap files}{4}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}File headers}{4}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Miscellaneous Challenges}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Difference between two files}{4}{subsection.4.1}% 
+\contentsline {section}{\numberline {5}Programming Challenges}{4}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Git history}{4}{subsection.5.1}% 
+\contentsline {section}{\numberline {6}Pwn Challenges}{5}{section.6}% 
+\contentsline {section}{\numberline {7}Reversing Challenges}{5}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}radare2 -- disassemble}{5}{subsection.7.1}% 
+\contentsline {section}{\numberline {8}Steganography}{5}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Extracting files from images}{5}{subsection.8.1}% 
+\contentsline {section}{\numberline {9}Web Challenges}{5}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}SQLi}{5}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}POST authentication}{5}{subsection.9.2}% 

@@ -1,0 +1,71 @@
+%%Standarddokument, v1.88 %%
+
+\documentclass[a4paper,DIV=calc,11pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} %Zeichencodierung
+\usepackage[english]{babel} %Sprachpaket
+\usepackage{setspace} % Einstellungen für den Zeilenabstand
+%\usepackage{libertine} % Schriftart
+\usepackage{charter}
+\usepackage[scaled=.825]{beramono}
+\usepackage{eulervm} %mathfont
+%\usepackage[math]{iwona} %mathfont
+\usepackage{microtype} %typografische Verbesserungen
+\usepackage[colorlinks=false,pdfborder={0 0 0},bookmarksnumbered]{hyperref}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry} % gibt die Seitenränder an
+\usepackage[scaled=.85]{helvet}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{amsmath} %for modulo
+\usepackage{etoolbox}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+
+%Tabellen mit verschiedener breite
+%\usepackage{tabularx}
+\usepackage{booktabs}
+\setlength{\heavyrulewidth}{1.5pt}
+\usepackage{makecell}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\renewcommand{\arraystretch}{1.5}
+
+\lstset{basicstyle=\ttfamily,
+			language=python,
+			keywordstyle=\color{BrickRed},
+			commentstyle=\color{gray},
+			breaklines=true,
+			frame=trlb,
+			numbers=left,
+			numberstyle=\tiny,}
+\setcounter{tocdepth}{3}
+
+\begin{document}
+
+\hypersetup{
+	pdftitle={CTF / Sec field guide}
+	}
+	
+\onehalfspace % 1,5-facher Zeilenabstand
+	
+\title{\textsc{Field Guide}}
+\subtitle{CTF / Sec}
+\date{\small \today}
+\author{Laeberkaes}
+\maketitle %gibt die Titelangaben aus
+
+\tableofcontents
+\newpage
+\input{./binary/binary}
+\input{./crypto/crypto}
+\input{./forensics/forensics}
+\input{./misc/misc}
+\input{./programming/programming}
+\input{./pwn/pwn}
+\input{./reverse/reverse}
+\input{./stego/stego}
+\input{./web/web}
+
+\end{document}\textsl{}
